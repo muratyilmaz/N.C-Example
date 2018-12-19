@@ -93,7 +93,7 @@
     [self reload];
 }
 
-- (void) routeDetailFor: (NSInteger) index {
+- (void) routeToDetailFor: (NSInteger) index {
     Character* character = self.actors[index];
     switch (character.viewType) {
             // immediately
@@ -136,7 +136,7 @@
 
 // MARK: UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self routeDetailFor:indexPath.row];
+    [self routeToDetailFor:indexPath.row];
 }
 
 // MARK: SecondViewControllerDelegate
