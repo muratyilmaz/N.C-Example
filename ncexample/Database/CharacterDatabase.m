@@ -29,8 +29,11 @@
     return self;
 }
 
+// fetch characters and sort by their view type
 - (NSArray<Character*>*)fetchCharacters {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Character"];
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"viewType" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
     NSError *error = nil;
     NSUInteger characterCount = [context countForFetchRequest:request error:&error];
     if (characterCount == 0) {

@@ -42,7 +42,7 @@
     [self.tableView reloadData];
 }
 
-- (void)handleAddTap {
+- (void)handleAddButtonTap {
     UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Add New Character" message:NULL preferredStyle:UIAlertControllerStyleAlert];
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = @"Full name";
@@ -69,8 +69,8 @@
 }
 
 - (void)setupNavigationBar {
-    [self.navigationItem setTitle: @"Actors"];
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(handleAddTap)];
+    [self.navigationItem setTitle: @"Characters"];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(handleAddButtonTap)];
     [self.navigationItem setRightBarButtonItem: addButton];
 }
 
@@ -122,10 +122,9 @@
 
 // MARK: UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     Character *actor = self.actors[indexPath.row];
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = actor.fullname;
-    
     NSString *viewCountString = [NSString stringWithFormat:@"%lli kere görüntülendi", actor.viewCount];
     cell.detailTextLabel.text = viewCountString;
     return cell;

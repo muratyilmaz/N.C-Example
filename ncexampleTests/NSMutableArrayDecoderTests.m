@@ -16,10 +16,6 @@
 
 @implementation NSMutableArrayDecoderTests
 
-- (void)setUp {
-    
-}
-
 - (void)testToJSON {
     // Given
     NSMutableArray *array = [[NSMutableArray alloc] init];

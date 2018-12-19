@@ -11,7 +11,9 @@
 #import "ListViewController.h"
 
 @interface ThirdViewController : UIViewController
-    - (instancetype)initWith: (Character *) character;
-    @property (nonatomic, weak) ListViewController* listVC;
+
+@property (nonatomic, weak) ListViewController* listVC;
+
+- (instancetype)initWith: (Character *) character;
 
 @end
